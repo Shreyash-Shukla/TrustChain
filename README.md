@@ -4,7 +4,7 @@
 ---
 
 ## 🚀 Project Overview  
-**Protract** combines AI and blockchain to combat financial fraud through:  
+**VeriChain** combines AI and blockchain to combat financial fraud through:  
 - 👤 Face Recognition Authentication  
 - 🌳 AI-Powered Fraud Detection (Random Forest)  
 - ⛓ Blockchain Security (Ethereum/MetaMask)  
