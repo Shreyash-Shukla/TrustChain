@@ -1,4 +1,4 @@
-﻿# 🔒 Protract - AI-Powered Fraud Prevention System  
+﻿# 🔒 VeriChain - AI-Powered Fraud Prevention System  
 **Project Overiew (Must see don't skip please!) →** [Google Doc](https://docs.google.com/document/d/1rXxpWi0Xz0d75YcYpinTMJ3NvfprL1TYvJ1digS2Ojo/edit?usp=sharing)  
 
 ---
