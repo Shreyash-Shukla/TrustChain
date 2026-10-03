@@ -1,10 +1,10 @@
-﻿# 🔒 VeriChain - AI-Powered Fraud Prevention System  
+﻿# 🔒 TrustChain - AI-Powered Fraud Prevention System  
 **Project Overiew (Must see don't skip please!) →** [Google Doc](https://docs.google.com/document/d/1rXxpWi0Xz0d75YcYpinTMJ3NvfprL1TYvJ1digS2Ojo/edit?usp=sharing)  
 
 ---
 
 ## 🚀 Project Overview  
-**VeriChain** combines AI and blockchain to combat financial fraud through:  
+**TrustChain** combines AI and blockchain to combat financial fraud through:  
 - 👤 Face Recognition Authentication  
 - 🌳 AI-Powered Fraud Detection (Random Forest)  
 - ⛓ Blockchain Security (Ethereum/MetaMask)  
