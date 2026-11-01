@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import AIChat from "@/components/investment-advisor/ai-chat"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
@@ -54,10 +53,10 @@ export default function InvestmentAdvisor() {
         >
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              <span className="gradient-text">AI-Powered</span> Investment Advisor
+              <span className="gradient-text">Investment</span> Planning Guide
             </h1>
             <p className="mt-4 text-xl text-muted-foreground">
-              Get personalized investment recommendations based on your financial profile and goals
+              Explore illustrative allocations based on your selected risk level
             </p>
           </div>
 
@@ -133,7 +132,7 @@ export default function InvestmentAdvisor() {
                   </div>
 
                   <Button type="submit" className="w-full">
-                    Get Investment Advice
+                    See Example Allocations
                   </Button>
                 </form>
               </CardContent>
@@ -141,21 +140,17 @@ export default function InvestmentAdvisor() {
           ) : (
             <Card className="border-fintech-black-800 bg-card/50 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle>Your Investment Recommendations</CardTitle>
+                <CardTitle>Example Allocations</CardTitle>
                 <CardDescription>
                   Based on your profile: ${formData.investmentCapital} investment, {formData.riskTolerance} risk
                   tolerance, {formData.timeHorizon} time horizon
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Tabs defaultValue="chat" className="w-full">
-                  <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="chat">AI Advisor Chat</TabsTrigger>
-                    <TabsTrigger value="recommendations">Recommendations</TabsTrigger>
+                <Tabs defaultValue="recommendations" className="w-full">
+                  <TabsList className="grid w-full grid-cols-1">
+                    <TabsTrigger value="recommendations">Examples</TabsTrigger>
                   </TabsList>
-                  <TabsContent value="chat" className="mt-4">
-                    <AIChat userProfile={formData} />
-                  </TabsContent>
                   <TabsContent value="recommendations" className="mt-4">
                     <div className="space-y-6">
                       <div>

@@ -114,7 +114,7 @@ export default function SignIn() {
       }
 
       // Credential verification
-      const loginResponse = await axios.post('/api/login', {
+      await axios.post('/api/login', {
         username,
         password,
         walletAddress: account.address
@@ -125,7 +125,6 @@ export default function SignIn() {
         throw new Error("Wallet not registered");
       }
 
-      localStorage.setItem('token', loginResponse.data.token);
       window.location.href = '/dashboard';
     } catch (error) {
       setError(error.response?.data?.error || error.message);

@@ -131,6 +131,9 @@ export default function SignUp() {
                   className="text-black"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                  minLength={3}
+                  maxLength={32}
+                  pattern="[a-zA-Z0-9_]+"
                   required
                 />
               </div>
@@ -144,6 +147,8 @@ export default function SignUp() {
                   className="text-black"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  minLength={8}
+                  maxLength={128}
                   required
                 />
               </div>
@@ -242,11 +247,14 @@ export default function SignUp() {
               }
               onTransactionConfirmed={async () => {
                 try {
-                  await axios.post('http://localhost:8000/register', {
+                  const registrationResponse = await axios.post('http://localhost:8000/register', {
                     username,
                     password,
                     image_url: firebaseUrl
                   });
+                  if (registrationResponse.data?.message !== 'User registered successfully') {
+                    throw new Error('Face registration failed. Your wallet may already be registered; contact support.');
+                  }
                   // Save to MongoDB
                   await axios.post('/api/signup', {
                     username,
@@ -254,14 +262,14 @@ export default function SignUp() {
                     image_url: firebaseUrl,
                     walletAddress: account.address
                   });
-                  window.location.href = '/dashboard';
+                  window.location.href = '/signin';
                 } catch (error) {
                   setError(error.message);
                 }
               }}
               onError={(error) => setError(`Blockchain error: ${error.message}`)}
               className="w-full"
-              disabled={!username || !password || !firebaseUrl}
+              disabled={!/^[a-zA-Z0-9_]{3,32}$/.test(username.trim()) || password.length < 8 || password.length > 128 || !firebaseUrl}
             >
               Complete Sign Up
             </TransactionButton>

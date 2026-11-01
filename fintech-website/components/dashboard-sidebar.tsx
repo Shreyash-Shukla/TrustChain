@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { BarChart3, CreditCard, DollarSign, Home, PieChart, Settings, User, Wallet, LogOut } from "lucide-react"
 
@@ -12,6 +13,13 @@ interface SidebarProps {
 
 export function DashboardSidebar({ isSidebarOpen, toggleSidebar }: SidebarProps) {
   const pathname = usePathname()
+  const router = useRouter()
+
+  const handleLogout = async () => {
+    await fetch("/api/logout", { method: "POST" })
+    router.replace("/signin")
+    router.refresh()
+  }
 
   const routes = [
     {
@@ -106,7 +114,7 @@ export function DashboardSidebar({ isSidebarOpen, toggleSidebar }: SidebarProps)
             <p className="text-sm font-medium">John Doe</p>
             <p className="truncate text-xs text-muted-foreground">john.doe@example.com</p>
           </div>
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" onClick={handleLogout}>
             <LogOut className="h-4 w-4" />
             <span className="sr-only">Log out</span>
           </Button>
